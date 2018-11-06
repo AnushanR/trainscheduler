@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html lang="en-us">
+
+<head>
+
+  <meta charset="UTF-8">
+  <title>Train Schedule</title>
+
+  <!-- jQuery -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Bootstrap CDN-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+  <!-- Firebase Reference -->
+  <script src="https://www.gstatic.com/firebasejs/5.5.7/firebase.js"></script>
+
+</head>
+
+<body>
+
+  <div class="container">
+
+    <br>
+
+    <!-- Jumbotron Title -->
+    <div class="jumbotron " style="background-image: url('https://unsplash.it/1900/1080?image=1081');">
+      <h1 class="text-center">Welcome to the TTC's Train Schedule</h1>
+      <h3 class="text-center">"Find your train time below."</h3>
+    </div>
+
+    <!-- Current Train Schedule-->
+
+    <div class="card">
+        <div class="card-header"  style="background-image: url('https://unsplash.it/1900/1080?image=1081');" >
+          <h3>Current Train Schedule</h3>
+        </div>
+        <div class="card-body" id='newTrain-table' style="background-image: url('https://unsplash.it/1900/1080?image=1081');" >
+          <!-- Content will go in here -->
+          <table class="table table-sm table-hover" id='newTrain-table'>
+            <thead>
+              <tr>
+                <th scope="col">Train Name</th>
+                <th scope="col">Destination</th>
+                <th scope="col">Time</th>
+                <th scope="col">Frequency</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      
+
+    <!--Add train form-->
+
+    <br><div class="card" style= "background-image: url('https://unsplash.it/1900/1080?image=1081');">
+        <div class="card-header">
+          <h3>Don't See your Train?</h3>
+          <h4>Add it below!</h4>
+        </div>
+        <div class="card-body">
+          <form action="" method="POST" role="form">
+
+            <div class="form-group">
+              <label for="">Train Name</label>
+              <input type="text" class="form-control" id="name" placeholder="">
+            </div>
+
+            <div class="form-group">
+              <label for="">Destination</label>
+              <input type="text" class="form-control" id="destination" placeholder="">
+            </div>
+
+            <div class="form-group">
+              <label for="">First Train Time (Millitary Time)</label>
+              <input type="text" class="form-control" id="time" placeholder="">
+            </div>
+
+            <div class="form-group">
+              <label for="">Frequency (miniutes)</label>
+              <input type="text" class="form-control" id="frequency" placeholder="">
+            </div>
+
+          </form>
+          <br>
+          <div class="text-right">
+            <button type="submit" class="btn btn-primary btn-md" id="add-btn">
+              <span class="fa fa-fire"></span> Add Train</button>
+          </div>
+        </div>
+      </div>
+
+   
+
+  
+
+  <!-- Script -->
+  <script src="logic.js"></script>
+
+</body>
+
+</html>
+ 
