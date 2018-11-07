@@ -74,12 +74,51 @@ var config = {
         console.log(empName);
         console.log(divider);
 
+        // train frequency
+        var tFrequency = parseInt(empFreq);
+       
+        // first train time
+        var firstTrain = parseInt(empTime);
+        
+
+        // First Time (pushed back 1 year to make sure it comes before current time)
+        var firstTimeConverted = moment(firstTrain, "hh:mm").subtract(1, "years");
+        
+
+        // current time 
+
+        var currentTime = moment().format("hh:mm");
+        console.log("current time" + currentTime)
+
+        // Difference between the times
+        var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+        
+
+
+     // Time apart (remainder)
+    var tRemainder = diffTime % tFrequency;
+    
+
+    // Minute Until Next Train
+    var tMinutesTillTrain = tFrequency - tRemainder;
+    
+
+    // Next Train
+    var nextTrain = moment().add(tMinutesTillTrain, "minutes").format("hh:mm a")
+   
+
+
+
+
+
+
          // create row for new train
     var newRow = $("<tr>").append(
         $("<td>").text(empName),
         $("<td>").text(empDest),
-        $("<td>").text(empTime),
-        $("<td>").text(empFreq),
+        $("<td>").text(tFrequency),
+        $("<td>").text(nextTrain),
+        $("<td>").text(tMinutesTillTrain)
   
       );
 
